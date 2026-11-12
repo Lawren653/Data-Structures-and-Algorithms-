@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RecursiveFileFinder {
-    // Searches a directory and all its subdirectories recursively.
+    
     public static void findSourceFiles(File directory, List<File> results) {
         if (directory == null || !directory.exists() || !directory.isDirectory()) {
             return;
@@ -12,14 +12,13 @@ public class RecursiveFileFinder {
 
         File[] items = directory.listFiles();
 
-        // listFiles() can return null when a directory cannot be accessed.
+        
         if (items == null) {
             return;
         }
 
         for (File item : items) {
-            if (item.isDirectory()) {
-                // Recursive step: search inside this subdirectory.
+            if (item.isDirectory()) 
                 findSourceFiles(item, results);
             } else if (item.isFile()) {
                 String name = item.getName().toLowerCase();
