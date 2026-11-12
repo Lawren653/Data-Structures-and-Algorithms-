@@ -1,14 +1,13 @@
 import java.util.Scanner;
 
 public class FactorialRecursion {
-    // Returns n! using recursion.
     public static long factorial(int n) {
-        // Base case: 0! and 1! are both 1.
+        
         if (n == 0 || n == 1) {
             return 1;
         }
 
-        // Recursive step: reduce the problem to factorial(n - 1).
+        
         return n * factorial(n - 1);
     }
 
