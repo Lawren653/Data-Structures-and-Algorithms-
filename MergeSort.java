@@ -1,21 +1,20 @@
 import java.util.Arrays;
 
 public class MergeSort {
-    // Divides the array, sorts each half, and combines the results.
     public static void mergeSort(int[] array, int left, int right) {
-        // Base case: an array section with zero or one element is sorted.
+        
         if (left >= right) {
             return;
         }
 
-        // DIVIDE
+        
         int middle = left + (right - left) / 2;
 
-        // CONQUER
+        
         mergeSort(array, left, middle);
         mergeSort(array, middle + 1, right);
 
-        // COMBINE
+        
         merge(array, left, middle, right);
     }
 
@@ -26,7 +25,6 @@ public class MergeSort {
         int j = middle + 1;
         int k = 0;
 
-        // Compare values from both halves and copy the smaller one.
         while (i <= middle && j <= right) {
             if (array[i] <= array[j]) {
                 temporary[k++] = array[i++];
@@ -35,17 +33,17 @@ public class MergeSort {
             }
         }
 
-        // Copy any values left in the first half.
+    
         while (i <= middle) {
             temporary[k++] = array[i++];
         }
 
-        // Copy any values left in the second half.
+    
         while (j <= right) {
             temporary[k++] = array[j++];
         }
 
-        // Copy the merged values back into the original array.
+        
         for (int x = 0; x < temporary.length; x++) {
             array[left + x] = temporary[x];
         }
